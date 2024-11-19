@@ -1,0 +1,19 @@
+tabWidth: 2
+useTabs: false
+expandUsers: true
+keyOrder:
+- name
+- version
+- private
+- nativescript
+- androidStatusBarBackground
+- statusBarStyle
+- main
+- scripts
+- dependencies
+- devDependencies
+- quokka
+
+
+
+

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "allowJs": true,
+    "strictNullChecks": true,
+    "allowImportingTsExtensions": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["esnext", "WebWorker", "DOM"],
+    "sourceMap": true,
+    "noEmitHelpers": true,
+    "noEmit": true,
+    "importHelpers": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"],
+      "@/*": ["src/*"],
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true
+  },
+  "vueCompilerOptions": {
+    "target": 3,
+    "lib": "nativescript-vue"
+  },
+  "parserOptions": {
+    "extraFileExtensions": [".vue", ".js", ".mjs", ".ts", ".yml", ".json", ".jsonc", ".d.ts"],
+    "ecmaVersion": "latest",
+    "project": "tsconfig.json",
+    "sourceType": "module",
+  },
+  "include": [
+      "src",
+      "custom-loaders",
+      "custom-packages",
+      "eslint",
+      "tools",
+      "types",
+      "tsconfig.json",
+      "references.d.ts",
+      "webpack.config.js",
+      "*tsconfig.*",
+      "*.config.*"
+    ],
+    "exclude": [
+      "hooks",
+      "patches",
+      ".vscode",
+      "node_modules",
+      "tmp",
+      "platforms",
+      "src/app.js"
+    ],
+  "sourceMapPathOverrides": {
+    "webpack://@nativescript/COM.REPLACE.THIS/*": "${workspaceRoot}/*"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "folders": [{
+      "binary_file_patterns": [
+         ".idea/**",".vscode/**", "build-tools/**",
+         "dist/**",
+         "package-lock.json",
+         "*.jpeg","*.png","*.gif","*.ttf","*.tga","*.dds","*.ico","*.eot","*.pdf",
+         "*.swf", "*.jar", "*.zip", "*.zip", "webpack.stats.json", "report/**", "platforms/ios/Pods/**",
+         "platforms/**",
+         "node_modules/**",
+         "App_Resources/Android/src/main/res/**",
+         "App_Resources/iOS/Assets.xcassets/main/res/**",
+         "src/store/pinia-hmr.js",
+         "src/store/pinia-hmr.js.map",
+         // "src/app.js",
+         ".migration_backup/",
+         ".cache/",
+         "*.log",
+         "output*log",
+         "*output*log",
+      ],
+      "path": ".",
+    },
+  ],
+  "debugger_tasks" : [
+    {
+        "name" : "Launch Debugger",
+        "cmd" : ["npm", "run","dev:debug"],
+    }
+  ],
+  "build_systems": [
+    {
+    "name": "Eslint fix current file",
+    "cmd": ["npm", "run", "lint:fix:file","$file_path/$file_name"],
+    "working_dir": "$project_path",
+    "syntax": "Packages/Limitless LSP-Enhancements/LSP-PRO.sublime-syntax",
+    }
+  ],
+  "settings": {
+    "show_panel_on_build": false,
+    "trim_trailing_white_space_on_save": "none",
+    "ensure_newline_at_eof_on_save": true,
+    "lsp_code_actions_on_save": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true,
+    },
+    "show_diagnostics_panel_on_save": 4,
+    "LSP": {
+      "language-ids": {
+        "source.projs": "javascript",
+        "source.procsss": "css",
+        "source.json": "json",
+      },
+
+      "LSP-eslint": {
+        "enabled": true,
+        "selector": "text.html.vue | source.ts | source.tsx | source.js | source.jsx | source.yaml | source.json",
+        "settings": {
+          "validate": [
+            "javascript",
+            "javascriptreact",
+            "vue",
+            "json",
+            "yaml"
+          ],
+        },
+        "file_watcher": {
+          "patterns": [
+            "**/.eslintr{c.js,c.yaml,c.yml,c,c.json,c.mjs}",
+            "**/eslint.*",
+            "**/.eslintignore",
+            "**/package.json"
+          ],
+        },
+      },
+
+      "LSP-typescript": {
+        "enabled": true,
+        "selector": "text.html.vue | source.ts | source.tsx | source.js | source.jsx | source.yaml | source.json",
+        "settings": {
+          "diagnostics.ignoredCodes": [7016, 7044],
+          // "validate": [
+          //   "javascript",
+          //   "javascriptreact",
+          //   "vue",
+          //   "json",
+          //   "yaml"
+          // ],
+        },
+        "file_watcher": {
+          "patterns": [
+            "**/eslint.*",
+            "**/package.json"
+          ],
+        },
+      },
+
+      "LSP-stylelint": {
+        "selector": "source.css | source.scss | source.less | text.html.vue",
+        "settings": {
+          "stylelint.enable": true,
+          "stylelint.validate": [
+            "vue",
+            "css",
+            "less",
+            "stylus",
+            "scss"
+          ],
+          "stylelint.reportInvalidScopeDisables": true,
+          "stylelint.reportNeedlessDisables": true,
+        },
+        "enabled": false,
+      },
+    },
+  },
+  "debugger_configurations":
+  [
+      {
+            "name": "NODE Launch on Android",
+            "type": "node",
+            "request": "launch",
+            "sourceMaps": true,
+            "stopOnEntry": true,
+            "runtimeExecutable": "ns",
+            "showAsyncStacks": true,
+             "runtimeArgs": [
+                "debug",
+                "android",
+                // "-r",
+                // "esm",
+                // "--analyticsClient", "VSCode",
+                "--inspect-brk",
+                "--debug-brk",
+                "--stats-error-details=true",
+                "--preserve-symlinks"
+      ],
+            "outputCapture": "console",
+            "console": "internalConsole",
+            // "program": "nativescript.config.ts",
+            "remoteRoot": "file://data/data/org.nativescript.test/files",
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**/*.*",
+                "<node_internals>/**/*.*"
+            ],
+            "sourceMapPathOverrides": {
+                "src/webpack:/COM.CHANGE.THIS/*": "${workspaceRoot}/*",
+            },
+        }
+  ],
+}

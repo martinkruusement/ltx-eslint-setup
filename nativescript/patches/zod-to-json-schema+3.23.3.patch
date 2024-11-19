@@ -1,0 +1,18 @@
+diff --git a/node_modules/zod-to-json-schema/dist/esm/parseDef.js b/node_modules/zod-to-json-schema/dist/esm/parseDef.js
+index f98d649..156ba0f 100644
+--- a/node_modules/zod-to-json-schema/dist/esm/parseDef.js
++++ b/node_modules/zod-to-json-schema/dist/esm/parseDef.js
+@@ -46,6 +46,13 @@ export function parseDef(def, refs, forceResolution = false) {
+     }
+     const newItem = { def, path: refs.currentPath, jsonSchema: undefined };
+     refs.seen.set(def, newItem);
++    
++    if(!def?.typeName){
++      console.error("missing def.typeName")
++      console.error('def',def)
++      console.error('def.typeName',def?.typeName)
++      console.error('refs',refs)
++    }
+     const jsonSchema = selectParser(def, def.typeName, refs);
+     if (jsonSchema) {
+         addMeta(def, refs, jsonSchema);

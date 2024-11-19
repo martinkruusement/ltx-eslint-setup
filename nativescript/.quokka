@@ -1,0 +1,23 @@
+{
+  "pro": true,
+  "stdEsm": false,
+  "nativeEsm": true,
+  "autoLog": true,
+  "logLimit": 200,
+  "plugins": [
+    "quokka-signet-explorer",
+    "alias-quokka-plugin"
+  ],
+  "recycle": true,
+  "alias": {
+    "@": "."
+  }
+},
+"quokkaBackup": {
+  "babel": {
+    "path": "./node_modules/babel-core",
+    "presets": [
+      "env"
+    ]
+  }
+}

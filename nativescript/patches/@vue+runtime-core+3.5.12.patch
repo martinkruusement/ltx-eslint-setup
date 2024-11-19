@@ -1,0 +1,16 @@
+diff --git a/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js b/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
+index a9cd6bb..799de71 100644
+--- a/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
++++ b/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
+@@ -4254,7 +4254,10 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
+     for (const key in raw) {
+       const normalizedKey = camelize(key);
+       if (validatePropName(normalizedKey)) {
+-        const opt = raw[key];
++        let opt = raw[key];
++        if (raw[key]?.constructor && typeof raw[key].constructor !== 'function') {
++          opt = raw[key].constructor;
++        }
+         const prop = normalized[normalizedKey] = isArray(opt) || isFunction(opt) ? { type: opt } : extend({}, opt);
+         const propType = prop.type;
+         let shouldCast = false;
